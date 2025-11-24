@@ -3518,7 +3518,9 @@ MonoBehaviour:
   - {fileID: 8509018044341475585, guid: 9ef27024e68e3994ba87ef97f467881f, type: 3}
   - {fileID: 2842481597506756641, guid: 66bef5fa6a4dd774284933f92028f87f, type: 3}
   - {fileID: 6563031673306594924, guid: 8db164f48fcdae64180ebf0ce2bb5d92, type: 3}
+  - {fileID: 9021979860543945138, guid: e02b31792a067c74a81e275fcda3930b, type: 3}
   respawnTime: 5
+  areaSize: {x: 10, y: 0, z: 10}
 --- !u!4 &1254062522
 Transform:
   m_ObjectHideFlags: 0
@@ -3528,7 +3530,7 @@ Transform:
   m_GameObject: {fileID: 1254062520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.86634, y: 0.42, z: -5.51}
+  m_LocalPosition: {x: -0.09, y: 0.42, z: -6.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
