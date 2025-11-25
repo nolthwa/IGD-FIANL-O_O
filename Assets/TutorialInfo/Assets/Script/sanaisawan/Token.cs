@@ -1,13 +1,15 @@
-public class Coin : Item
+using UnityEngine;
+
+public class Token : Item
 {
-    public int ScoreValue = 10;
+    public int ScoreValue = 100;
     
 
     public override void OnCollect(Player player)
     {
         base.OnCollect(player);
 
-        GameManager.Instance.AddCoin(ScoreValue);
+        GameManager.Instance.AddToken(ScoreValue);
         
 
         Destroy(gameObject);

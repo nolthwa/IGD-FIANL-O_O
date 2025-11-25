@@ -1,13 +1,13 @@
-public class Coin : Item
+public class Gold : Item
 {
-    public int ScoreValue = 10;
+    public int ScoreValue = 50;
     
 
     public override void OnCollect(Player player)
     {
         base.OnCollect(player);
 
-        GameManager.Instance.AddCoin(ScoreValue);
+        GameManager.Instance.AddGold(ScoreValue);
         
 
         Destroy(gameObject);

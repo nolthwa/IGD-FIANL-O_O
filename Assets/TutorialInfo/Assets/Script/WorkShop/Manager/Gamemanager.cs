@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// ¡ÓË¹´ãËéà»ç¹ sealed à¾×èÍ»éÍ§¡Ñ¹¡ÒÃÊ×º·Í´
+// ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sealed ï¿½ï¿½ï¿½Í»ï¿½Í§ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½×ºï¿½Í´
 public sealed class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -17,12 +17,16 @@ public sealed class GameManager : MonoBehaviour
     }
 
     [Header("Game State")]
-    public int currentScore = 0;
+    public int coinScore = 0;
+    public int goldScore = 0;
+    public int tokenScore = 0;
     public bool isGamePaused = false;
 
     [Header("UI Game")]
     public GameObject pauseMenuUI;
-    public TMP_Text scoreText;
+    public TMP_Text coinText;
+    public TMP_Text goldText;
+    public TMP_Text tokenText;
     public Slider HPBar;
 
     private void Awake()
@@ -51,14 +55,22 @@ public sealed class GameManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int amount)
+    public void AddCoin(int amount)
     {
-        currentScore += amount;
+        coinScore += amount;
+        coinText.text = coinScore.ToString();
+    }
 
-        if (scoreText != null)
-            scoreText.text = currentScore.ToString();
-        else
-            Debug.LogWarning("scoreText reference is missing.");
+    public void AddGold(int amount)
+    {
+        goldScore += amount;
+        goldText.text = goldScore.ToString();
+    }
+
+    public void AddToken(int amount)
+    {
+        tokenScore += amount;
+        tokenText.text = tokenScore.ToString();
     }
 
     public void TogglePause()
