@@ -37,9 +37,12 @@ public class Character : Identity, Idestoryable
     public virtual void TakeDamage(int amount) {
         amount = Mathf.Clamp(amount- Deffent, 1, amount);
         health -= amount;
-        if (health <= 0) {
+        if (health <= 0) 
+        {
             OnDestory?.Invoke(this);
             Destroy(gameObject);
+            GameOverUI.Instance.ShowGameOver();
+
         }
     }
     public virtual void Heal(int amount)
