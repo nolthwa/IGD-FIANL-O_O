@@ -3,12 +3,14 @@ using System;
 
 public class ItemPickup : Item
 {
-    public enum ItemType { Coin, Gold, Token }
+    public enum ItemType { Coin, Gold, Token, DamageItem }
     public ItemType itemType;
 
     public event Action onPickedUp;
     public AudioClip SoundPickup;
     public int ScoreValue = 10;
+    public int damageAmount = 10;
+
 
     public float autoDestroyTime = 5f;
 
@@ -18,30 +20,39 @@ public class ItemPickup : Item
     }
 
     void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Player"))
     {
-        if (other.CompareTag("Player"))
+        SoundManager.Instance.PlaySFX(SoundPickup);
+
+        switch (itemType)
         {
-            SoundManager.Instance.PlaySFX(SoundPickup);
+            case ItemType.Coin:
+                GameManager.Instance.AddCoin(ScoreValue);
+                break;
 
-            switch (itemType)
-            {
-                case ItemType.Coin:
-                    GameManager.Instance.AddCoin(ScoreValue);
-                    break;
+            case ItemType.Gold:
+                GameManager.Instance.AddGold(ScoreValue);
+                break;
 
-                case ItemType.Gold:
-                    GameManager.Instance.AddGold(ScoreValue);
-                    break;
+            case ItemType.Token:
+                GameManager.Instance.AddToken(ScoreValue);
+                break;
 
-                case ItemType.Token:
-                    GameManager.Instance.AddToken(ScoreValue);
-                    break;
-            }
-
-            onPickedUp?.Invoke();
-            Destroy(gameObject);
+            case ItemType.DamageItem:
+                  Character player = other.GetComponent<Character>();
+                  if (player != null)
+                {
+                 player.TakeDamage(damageAmount);
+                }
+    break;
         }
+
+        onPickedUp?.Invoke();
+        Destroy(gameObject);
     }
+}
+
 
     void AutoDestroy()
     {

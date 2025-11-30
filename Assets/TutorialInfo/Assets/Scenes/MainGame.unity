@@ -2768,27 +2768,13 @@ PrefabInstance:
       addedObject: {fileID: 792897849}
     - targetCorrespondingSourceObject: {fileID: 3664100224609117633, guid: a73eca55382651c449497eca9a2be0be, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 792897848}
+      addedObject: {fileID: 792897850}
   m_SourcePrefab: {fileID: 100100000, guid: a73eca55382651c449497eca9a2be0be, type: 3}
 --- !u!1 &792897847 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3664100224609117633, guid: a73eca55382651c449497eca9a2be0be, type: 3}
   m_PrefabInstance: {fileID: 792897846}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &792897848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792897847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88d26249a0beb44ab14f76f0684392c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: Coin
-  ScoreValue: 10
 --- !u!135 &792897849
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2810,6 +2796,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5151829
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &792897850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792897847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996ecc4e439608a409b644c770ef3a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageItem
+  _name: 
+  damageAmount: 10
 --- !u!1 &814405415
 GameObject:
   m_ObjectHideFlags: 0
@@ -4677,6 +4677,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1377451366773954460, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: _maxHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Name
       value: Player
