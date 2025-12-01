@@ -2592,6 +2592,8 @@ MonoBehaviour:
   PointScore: 0
   isGamePaused: 1
   pauseMenuUI: {fileID: 1811169451}
+  gameUIPanel: {fileID: 1985222386}
+  gameOverMenuUI: {fileID: 0}
   coinText: {fileID: 0}
   goldText: {fileID: 0}
   tokenText: {fileID: 0}
@@ -4349,7 +4351,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1403415604}
         m_TargetAssemblyTypeName: RestartGame, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4409,6 +4411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af444d95b45be0c47a9198c30dc04ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RestartGame
+  MainGameSceneName: GameSceneName
+  MainMenuSceneName: Menu
 --- !u!1001 &1422862060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4573,6 +4577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af444d95b45be0c47a9198c30dc04ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RestartGame
+  MainGameSceneName: GameSceneName
+  MainMenuSceneName: Menu
 --- !u!114 &1587663775
 MonoBehaviour:
   m_ObjectHideFlags: 0

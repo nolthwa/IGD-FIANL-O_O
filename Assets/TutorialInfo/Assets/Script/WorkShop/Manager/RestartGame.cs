@@ -3,19 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
+    [Header("Scene Names")]
+    public string MainGameSceneName = "GameSceneName"; 
+    public string MainMenuSceneName = "Menu"; 
+
     
-    public string MainGame = "GameSceneName"; 
-    
-    
-    public void Restart()
+    // ฟังก์ชันที่ใช้ผูกกับปุ่ม Restart
+    public void RestartGameButton()
     {
        
-        GameManager.Instance.ResetGameScores();
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetGameScores();
+        }
+        
+      
+        Time.timeScale = 1f; 
         
        
-        Time.timeScale = 1; 
-        
-        
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
@@ -23,22 +28,19 @@ public class RestartGame : MonoBehaviour
    
     public void GoToMainMenu()
     {
-        Time.timeScale = 1; 
         
+        if (GameManager.Instance != null)
+        {
+            
+            GameManager.Instance.GameOver(); 
+           
+             GameManager.Instance.ResetGameScores();
+        }
         
-        SceneManager.LoadScene("Menu"); 
-    }
-    
-
-    public void OnRestartButtonClicked()
-    {
-        
-        GameManager.Instance.ResetGameScores();
+       
+        Time.timeScale = 1f; 
 
        
-        Time.timeScale = 1f;
-
-       
-        Restart();
+        SceneManager.LoadScene(MainMenuSceneName); 
     }
 }

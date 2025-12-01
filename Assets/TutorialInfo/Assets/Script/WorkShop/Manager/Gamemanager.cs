@@ -1,8 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 
-// ��˹������ sealed ���ͻ�ͧ�ѹ����׺�ʹ
 public sealed class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -22,11 +22,13 @@ public sealed class GameManager : MonoBehaviour
     public int tokenScore = 0;
     public int PointScore = 0;
     
-    
     public bool isGamePaused = false;
 
     [Header("UI Game")]
     public GameObject pauseMenuUI;
+    public GameObject gameUIPanel;      
+    public GameObject gameOverMenuUI;   
+    
     public TMP_Text coinText;
     public TMP_Text goldText;
     public TMP_Text tokenText;
@@ -40,12 +42,85 @@ public sealed class GameManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
+            
+           
+            UpdateAllScoresUI(); 
         }
         else if (_instance != this)
         {
             Destroy(gameObject);
         }
     }
+
+    
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+       
+        UpdateAllScoresUI();
+    }
+
+    public void ResetGameScores()
+    {
+        coinScore = 0;
+        goldScore = 0;
+        tokenScore = 0;
+        PointScore = 0;
+
+        UpdateAllScoresUI(); 
+    }
+    
+    public void UpdateAllScoresUI()
+    {
+       
+        if (coinText != null) coinText.text = coinScore.ToString();
+        if (goldText != null) goldText.text = goldScore.ToString();
+        if (tokenText != null) tokenText.text = tokenScore.ToString();
+        if (PointText != null) PointText.text = PointScore.ToString();
+
+       
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        
+        if (currentSceneName == "Menu") 
+        {
+           
+            if (gameUIPanel != null)
+                gameUIPanel.SetActive(false); 
+        }
+        else
+        {
+           
+            if (gameUIPanel != null)
+                gameUIPanel.SetActive(true); 
+        }
+        
+        
+        if (gameOverMenuUI != null)
+            gameOverMenuUI.SetActive(false); 
+    }
+    
+    public void GameOver()
+    {
+        Time.timeScale = 0f; 
+
+        if (gameUIPanel != null)
+            gameUIPanel.SetActive(false); 
+
+        if (gameOverMenuUI != null)
+            gameOverMenuUI.SetActive(true); 
+    }
+
+   
 
     public void UpdateHealthBar(int currentHealth, int maxHealth)
     {
@@ -63,37 +138,31 @@ public sealed class GameManager : MonoBehaviour
     public void AddCoin(int amount)
     {
         coinScore += amount;
-        coinText.text = coinScore.ToString();
+        UpdateAllScoresUI(); 
     }
     
-
     public void AddGold(int amount)
     {
         goldScore += amount;
-        goldText.text = goldScore.ToString();
+        UpdateAllScoresUI();
     }
 
     public void AddPoint(int amount)
     {
         PointScore += amount;
-        PointText.text = PointScore.ToString();
+        UpdateAllScoresUI();
     }
     
     public void DelPoint(int amount)
     {
         PointScore -= amount;
-        PointText.text = PointScore.ToString();
+        UpdateAllScoresUI();
     }
+    
     public void AddToken(int amount)
     {
         tokenScore += amount;
-        tokenText.text = tokenScore.ToString();
-    }
-    public void UpdateAllScoresUI()
-
-    {       
-    if (PointText != null)
-        PointText.text = PointScore.ToString();
+        UpdateAllScoresUI();
     }
 
     public void TogglePause()
@@ -110,14 +179,4 @@ public sealed class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             TogglePause();
     }
-    public void ResetGameScores()
-
-    {
-    PointScore = 0;
-    UpdateAllScoresUI(); 
-    
-    Debug.Log("Scores have been reset to 0.");
-    }
-
-
 }
