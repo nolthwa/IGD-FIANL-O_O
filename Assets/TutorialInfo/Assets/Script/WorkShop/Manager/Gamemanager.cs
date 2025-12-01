@@ -20,6 +20,9 @@ public sealed class GameManager : MonoBehaviour
     public int coinScore = 0;
     public int goldScore = 0;
     public int tokenScore = 0;
+    public int PointScore = 0;
+    
+    
     public bool isGamePaused = false;
 
     [Header("UI Game")]
@@ -27,6 +30,8 @@ public sealed class GameManager : MonoBehaviour
     public TMP_Text coinText;
     public TMP_Text goldText;
     public TMP_Text tokenText;
+    public TMP_Text PointText;
+    
     public Slider HPBar;
 
     private void Awake()
@@ -60,6 +65,7 @@ public sealed class GameManager : MonoBehaviour
         coinScore += amount;
         coinText.text = coinScore.ToString();
     }
+    
 
     public void AddGold(int amount)
     {
@@ -67,6 +73,16 @@ public sealed class GameManager : MonoBehaviour
         goldText.text = goldScore.ToString();
     }
 
+    public void AddPoint(int amount)
+    {
+        PointScore += amount;
+        PointText.text = PointScore.ToString();
+    }
+    public void DelPoint(int amount)
+    {
+        PointScore -= amount;
+        PointText.text = PointScore.ToString();
+    }
     public void AddToken(int amount)
     {
         tokenScore += amount;
