@@ -78,6 +78,7 @@ public sealed class GameManager : MonoBehaviour
         PointScore += amount;
         PointText.text = PointScore.ToString();
     }
+    
     public void DelPoint(int amount)
     {
         PointScore -= amount;
