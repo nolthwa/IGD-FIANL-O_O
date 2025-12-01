@@ -89,6 +89,12 @@ public sealed class GameManager : MonoBehaviour
         tokenScore += amount;
         tokenText.text = tokenScore.ToString();
     }
+    public void UpdateAllScoresUI()
+
+    {       
+    if (PointText != null)
+        PointText.text = PointScore.ToString();
+    }
 
     public void TogglePause()
     {
@@ -104,4 +110,14 @@ public sealed class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             TogglePause();
     }
+    public void ResetGameScores()
+
+    {
+    PointScore = 0;
+    UpdateAllScoresUI(); 
+    
+    Debug.Log("Scores have been reset to 0.");
+    }
+
+
 }
