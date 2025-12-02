@@ -153,7 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
   _name: 
   itemType: 0
-  SoundPickup: {fileID: 0}
-  ScoreValue: 0
-  damageAmount: 0
+  SoundPickup: {fileID: 8300000, guid: bbda70d353314b94b8e0a9d91d880b3f, type: 3}
   autoDestroyTime: 5

@@ -71,7 +71,7 @@ PrefabInstance:
       addedObject: {fileID: 7595114566155606461}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b69ab7dc4a09f094885bf950a65c44c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -2382093473070108971}
+      addedObject: {fileID: 376792325348023154}
   m_SourcePrefab: {fileID: 100100000, guid: b69ab7dc4a09f094885bf950a65c44c3, type: 3}
 --- !u!1 &9021979860543945138 stripped
 GameObject:
@@ -140,10 +140,8 @@ MonoBehaviour:
   _name: 
   itemType: 0
   SoundPickup: {fileID: 8300000, guid: 83ad9d931ca1db84792ce95f49a3aca4, type: 3}
-  ScoreValue: 1
-  damageAmount: 100
   autoDestroyTime: 5
---- !u!114 &-2382093473070108971
+--- !u!114 &376792325348023154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,8 +150,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9021979860543945138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996ecc4e439608a409b644c770ef3a11, type: 3}
+  m_Script: {fileID: 11500000, guid: 08cbed669be913e4ab62a34ae4ffac57, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageItem
+  m_EditorClassIdentifier: Assembly-CSharp::DelPoint
   _name: 
-  damageAmount: 10
+  ScoreValue: -1
