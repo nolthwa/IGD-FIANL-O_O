@@ -3620,6 +3620,9 @@ MonoBehaviour:
   _name: Re
   itemPrefabs:
   - {fileID: 3452915741271081163, guid: 3f2245bee0a16594fa5461000f35ddc4, type: 3}
+  - {fileID: 3452915741271081163, guid: 3f2245bee0a16594fa5461000f35ddc4, type: 3}
+  - {fileID: 3452915741271081163, guid: 3f2245bee0a16594fa5461000f35ddc4, type: 3}
+  - {fileID: 3452915741271081163, guid: 3f2245bee0a16594fa5461000f35ddc4, type: 3}
   respawnTime: 5
   areaSize: {x: 10, y: 0, z: 10}
 --- !u!4 &1254062522
