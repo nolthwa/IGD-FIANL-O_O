@@ -8,10 +8,7 @@ public class ItemPickup : Item
 
     public event Action onPickedUp;
     public AudioClip SoundPickup;
-    public int ScoreValue = 10;
-    public int damageAmount = 10;
-
-
+   
     public float autoDestroyTime = 5f;
 
     void Start()
@@ -25,28 +22,7 @@ public class ItemPickup : Item
     {
         SoundManager.Instance.PlaySFX(SoundPickup);
 
-        switch (itemType)
-        {
-            case ItemType.Coin:
-                GameManager.Instance.AddCoin(ScoreValue);
-                break;
-
-            case ItemType.Gold:
-                GameManager.Instance.AddGold(ScoreValue);
-                break;
-
-            case ItemType.Token:
-                GameManager.Instance.AddToken(ScoreValue);
-                break;
-
-            case ItemType.DamageItem:
-                  Character player = other.GetComponent<Character>();
-                  if (player != null)
-                {
-                 player.TakeDamage(damageAmount);
-                }
-    break;
-        }
+       
 
         onPickedUp?.Invoke();
         Destroy(gameObject);
