@@ -1934,6 +1934,8 @@ MonoBehaviour:
   tokenScore: 0
   PointScore: 0
   isGamePaused: 1
+  timeText: {fileID: 1021850897}
+  startingTime: 60
   pauseMenuUI: {fileID: 1811169451}
   gameUIPanel: {fileID: 1985222386}
   gameOverMenuUI: {fileID: 0}
@@ -1970,6 +1972,8 @@ MonoBehaviour:
   startTime: 60
   timerText: {fileID: 1021850897}
   player: {fileID: 1729820281}
+  gameUIPanel: {fileID: 966258037}
+  gameOverMenuUI: {fileID: 966258037}
 --- !u!1 &1021850896
 GameObject:
   m_ObjectHideFlags: 0
@@ -3830,6 +3834,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 966258046}
+        m_TargetAssemblyTypeName: TimerSystem, Assembly-CSharp
+        m_MethodName: ResetAndStartTimer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 60
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 966258046}
+        m_TargetAssemblyTypeName: TimerSystem, Assembly-CSharp
+        m_MethodName: ResetAndStartTimer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 60
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1403415602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4125,6 +4153,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 966258046}
+        m_TargetAssemblyTypeName: TimerSystem, Assembly-CSharp
+        m_MethodName: ResetAndStartTimer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1587663776
